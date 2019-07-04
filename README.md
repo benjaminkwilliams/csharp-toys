@@ -4,7 +4,7 @@ Created by Benjamin Williams
 ## Random Toys / Utilities made with C#  
 This is done for fun
 * DataPivot
-** Turns a grid into a string
-** Useful for SQL "IN" WHERE clauses
+* Turns a grid into a string
+* Useful for SQL "IN" WHERE clauses
 * DataInsert
-** Formats a gird for SQL VALUES clause
+* Formats a gird for SQL VALUES clause

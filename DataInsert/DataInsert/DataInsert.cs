@@ -319,9 +319,9 @@ namespace DataInsert
                     else
                     {
                         txtOutputData.AppendText(
-                            (((bool)quoteElementList[j]) ? "\"" : "") +    // Element Quote
+                            (((bool)quoteElementList[j]) ? "'" : "") +    // Element Quote
                             InputData.Rows[i][j].ToString() +               // Element Value
-                            (((bool)quoteElementList[j]) ? "\"" : "") +    // Element Quote
+                            (((bool)quoteElementList[j]) ? "'" : "") +    // Element Quote
                             ((j < InputData.Columns.Count - 1) ? ", " : "")     // Delimeter for next value
                          );
                     }
@@ -329,7 +329,11 @@ namespace DataInsert
                 txtOutputData.AppendText( (((i + 1) != InputData.Rows.Count)?(" ),"):(" )")) + Environment.NewLine);
             }
             // remove last comma
-            txtOutputData.Text = txtOutputData.Text.Remove(txtOutputData.Text.Length - 3, 3);
+            if (txtOutputData.Text.EndsWith(")," + Environment.NewLine))
+            {
+                txtOutputData.Text = txtOutputData.Text.Remove(txtOutputData.Text.Length - ("," + Environment.NewLine).Length,
+                                                               ("," + Environment.NewLine).Length);
+            }
         }
 
         private void MakeFirstLineHeader()
